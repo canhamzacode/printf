@@ -7,5 +7,6 @@
 void print_char(va_list args)
 {
 	int ch = va_arg(args, int);
+
 	write(1, &ch, 1);
 }

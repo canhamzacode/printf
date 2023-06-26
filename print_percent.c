@@ -1,6 +1,6 @@
 #include "main.h"
 /**
- * print_percentage - function to print oercentage
+ * print_percent - function to print oercentage
  * @args: argument
  */
 void print_percent(va_list args)

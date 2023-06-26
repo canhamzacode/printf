@@ -31,6 +31,14 @@ int _printf(const char *format, ...)
             {
                 write(1, "%", 1);
             }
+            else if (*ptr == 'd')
+            {
+                print_int(va_arg(args, int));
+            }
+            else if (*ptr == 'i')
+            {
+                print_uint(va_arg(args, unsigned int));
+            }
         }
         else
         {

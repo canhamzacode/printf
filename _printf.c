@@ -9,47 +9,28 @@
  */
 int _printf(const char *format, ...)
 {
-    int i = 0;
-    va_list args;
-    va_start(args, format);
+	int count = 0;
 
-    const char *ptr = format;
-    while (*ptr != '\0')
-    {
-        if (*ptr == '%')
-        {
-            ptr++;
-            if (*ptr == 's')
-            {
-                print_string(va_arg(args, const char *));
-            }
-            else if (*ptr == 'c')
-            {
-                print_char(va_arg(args, int));
-            }
-            else if (*ptr == '%')
-            {
-                write(1, "%", 1);
-            }
-            else if (*ptr == 'd')
-            {
-                print_int(va_arg(args, int));
-            }
-            else if (*ptr == 'i')
-            {
-                print_uint(va_arg(args, unsigned int));
-            }
-        }
-        else
-        {
-            write(1, ptr, 1);
-        }
+	va_list args;
 
-        ptr++;
-        i++;
-    }
+	va_start(args, format);
+	const char *ptr = format;
 
-    va_end(args);
-
-    return i;
+	while (*ptr != '\0')
+	{
+		if (*ptr == '%')
+		{
+			ptr++;
+			count++;
+			handle_format_specifier(*ptr, args);
+		}
+		else
+		{
+			write(1, ptr, 1);
+		}
+		count++;
+		ptr++;
+	}
+	va_end(args);
+	return (count);
 }

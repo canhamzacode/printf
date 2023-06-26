@@ -1,13 +1,16 @@
 #include "main.h"
 /**
  * print_string - Prints a string.
- * @str: The string to be printed.
+ * @args: The argument that was passed.
  */
-void print_string(const char *str)
+void print_string(va_list args)
 {
-    if (str != NULL)
-    {
-        int length = strlen(str);
-        write(1, str, length);
-    }
+	char *str = va_arg(args, char*);
+	size_t len = 0;
+
+	while (str[len] != '\0')
+	{
+		len++;
+	}
+	write(1, str, len);
 }

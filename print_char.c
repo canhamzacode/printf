@@ -2,9 +2,10 @@
 
 /**
  * print_char - Prints a character.
- * @ch: The character to be printed.
+ * @args: The character to be printed.
  */
-void print_char(const int ch)
+void print_char(va_list args)
 {
-    write(1, &ch, 1);
+	int ch = va_arg(args, int);
+	write(1, &ch, 1);
 }

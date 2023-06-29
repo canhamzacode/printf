@@ -1,14 +1,22 @@
-#include "main.h"
-#include <stdio.h> // Include this header for the sprintf function
-
+#include "header.h"
 /**
- * print_int - function to print an integer
- * @num: The number to be printed
- */
-
-void print_int(const int num)
+ * print_int - print an integer
+ * @num: number to be printed
+ * Return: nothing
+*/
+void print_int(int num)
 {
-    char buffer[20];
-    sprintf(buffer, "%d", num);
-    write(1, buffer, strlen(buffer));
+    int n;
+
+    if (num == 0)
+    {
+        return;
+    }
+
+    n = num / 10;
+
+    get_int(n);
+    _putchar(num % 10 + '0');
+
+    return;
 }

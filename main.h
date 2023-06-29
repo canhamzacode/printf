@@ -1,15 +1,13 @@
-#ifndef _MAIN_H_
-#define _MAIN_H_
+#ifndef MAIN_H
+#define MAIN_H
 
 #include <stdio.h>
-#include <string.h>
-#include <unistd.h>
-#include <limits.h>
 #include <stdarg.h>
-int _printf(const char *format, ...);
-void print_string(const char *str);
-void print_char(const int ch);
-void print_int(const int num);
-void print_uint(unsigned int num);
+#include <unistd.h>
+
+int _putchar(char z);
+int my_printf(const char *format, ...);
+int print_string(const char *str);
+int print_int(int num);
 
 #endif

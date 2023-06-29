@@ -7,49 +7,43 @@
  *
  * Return: The number of characters printed.
  */
-int _printf(const char *format, ...)
+int my_printf(const char *format, ...)
 {
-    int i = 0;
+    unsigned a = 0, mycount = 0;
     va_list args;
     va_start(args, format);
 
-    const char *ptr = format;
-    while (*ptr != '\0')
+    for (a; format[a] != '\0'; a++)
     {
-        if (*ptr == '%')
+        if (format[a] != '%')
         {
-            ptr++;
-            if (*ptr == 's')
+            _putchar(format[a]);
+        }
+        else if (format[a] == '%')
+        {
+            if (format[a + 1] == 'c')
             {
-                print_string(va_arg(args, const char *));
+                _putchar(va_arg(args, int));
+                a++;
             }
-            else if (*ptr == 'c')
+            else if (format[a + 1] == 's')
             {
-                print_char(va_arg(args, int));
+                int r_val = print_string(va_arg(args, const char *));
+                a++;
+                mycount += (r_val - 1);
             }
-            else if (*ptr == '%')
+            else if (format[a + 1] == '%')
             {
-                write(1, "%", 1);
+                _putchar('%');
+                a++;
             }
-            else if (*ptr == 'd')
+            else if ((format[a + 1] == 'd') || format[a + 1] == 'i')
             {
                 print_int(va_arg(args, int));
-            }
-            else if (*ptr == 'i')
-            {
-                print_uint(va_arg(args, unsigned int));
+                a++;
             }
         }
-        else
-        {
-            write(1, ptr, 1);
-        }
-
-        ptr++;
-        i++;
+        mycount++;
     }
-
-    va_end(args);
-
-    return i;
+    return (mycount);
 }

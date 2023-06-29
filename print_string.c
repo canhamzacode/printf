@@ -2,12 +2,19 @@
 /**
  * print_string - Prints a string.
  * @str: The string to be printed.
+ * Return: string length
  */
-void print_string(const char *str)
+int print_string(const char *str)
 {
-    if (str != NULL)
+    int length = 0, i = 0;
+    if (str)
     {
-        int length = strlen(str);
-        write(1, str, length);
+        while (str[i] != '\0')
+        {
+            _putchar(str[i]);
+            length++;
+            i++;
+        }
     }
+    return (length);
 }

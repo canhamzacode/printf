@@ -6,7 +6,7 @@
 #include <unistd.h>
 
 int _putchar(char z);
-int my_printf(const char *format, ...);
+int _printf(const char *format, ...);
 int print_string(const char *str);
 int print_int(int num);
 

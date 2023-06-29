@@ -1,13 +1,10 @@
-#include "main.h"
-
+#include "header.h"
 /**
- * _printf - Prints formatted output.
- * @format: The format string.
- * @...: Additional arguments.
- *
- * Return: The number of characters printed.
+ * _printf - function to print
+ * @format: argument
+ * Return: length
  */
-int my_printf(const char *format, ...)
+int _printf(const char *format, ...)
 {
     unsigned a = 0, mycount = 0;
     va_list args;

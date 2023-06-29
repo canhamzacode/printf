@@ -1,8 +1,7 @@
-#include "main.h"
+#include "header.h"
 /**
  * print_string - Prints a string.
  * @str: The string to be printed.
- * Return: string length
  */
 int print_string(const char *str)
 {
